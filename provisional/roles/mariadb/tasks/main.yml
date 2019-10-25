@@ -1,0 +1,25 @@
+---
+- name: Download get-pip.py
+  get_url: url=https://bootstrap.pypa.io/get-pip.py dest=/tmp
+
+- name: Install PIP
+  command: "python /tmp/get-pip.py"
+  
+- name: Install Docker Python Package
+  pip:
+    name: docker
+    state: latest
+
+- name: Install MariaDB
+  docker_container:
+    name: MariaDB
+    image: mariadb:10.2.14
+    state: started
+    env:
+      MYSQL_USER: "{{mysql_user}}"
+      MYSQL_PASSWORD: "{{mysql_password}}"
+      MYSQL_ROOT_PASSWORD: "{{mysql_password}}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data
