@@ -8,6 +8,7 @@ Provisioning CentOS 7 on Vagrant using Ansible Provisional
 - Clone the repository ```git clone https://github.com/Kenec/Vagrant-Ansible-Provisional.git```
 - Change to the Vagrant-Ansible-Provisional directory ``` cd Vagrant-Ansible-Provisional```
 - Run and Provision Vagrant ```vagrant up --provision```
+- At the point where it will ask you for the **ansible-vault** password, Enter **kenechukwu**
 - SSH into the Vagrant box ```vagrant ssh```
 
 To ensure that the container is running, 
